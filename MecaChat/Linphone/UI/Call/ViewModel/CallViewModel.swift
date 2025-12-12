@@ -1446,7 +1446,7 @@ class CallViewModel: ObservableObject {
             var finalAddress = address
             
             if !address.contains("@") && !address.contains("sip:") && !address.hasPrefix("+") {
-                let domain = CorePreferences.defaultDomain ?? "sip.linphone.org"
+                let domain = CorePreferences.defaultDomain
                 finalAddress = "\(address)@\(domain)"
             }
             

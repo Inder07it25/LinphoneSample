@@ -23,10 +23,6 @@ import AVFAudio
 import linphonesw
 import UniformTypeIdentifiers
 
-// swiftlint:disable function_body_length
-// swiftlint:disable type_body_length
-// swiftlint:disable line_length
-// swiftlint:disable file_length
 struct CallView: View {
 	
 	@ObservedObject private var coreContext = CoreContext.shared
@@ -504,7 +500,11 @@ struct CallView: View {
 						}
 						
 						if let avatar = callViewModel.avatarModel {
-							Avatar(contactAvatarModel: avatar, avatarSize: 200, hidePresence: true)
+                            Avatar(
+                                contactAvatarModel: avatar,
+                                avatarSize: 200,
+                                hidePresence: true
+                            )
 						}
 						
 						if callViewModel.isRemoteDeviceTrusted {
@@ -2966,14 +2966,11 @@ struct PressedButtonStyle: ButtonStyle {
 #Preview {
 	CallView(
 		fullscreenVideo: .constant(false),
-		isShowStartCallFragment: .constant(false),
+		isShowStartCallFragment: .constant(true),
 		isShowConversationFragment: .constant(false),
 		isShowStartCallGroupPopup: .constant(false),
 		isShowEditContactFragment: .constant(false),
 		isShowScheduleMeetingFragment: .constant(false)
 	)
+    .environmentObject(CallViewModel())
 }
-// swiftlint:enable type_body_length
-// swiftlint:enable line_length
-// swiftlint:enable function_body_length
-// swiftlint:enable file_length
